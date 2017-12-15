@@ -1,4 +1,4 @@
-FROM php:7.1-alpine
+FROM php:7.1-fpm-alpine
 
 
 RUN apk update \
@@ -60,6 +60,6 @@ RUN apk update \
     libgomp \
     && rm -rf /var/cache/apk/* && rm -rf /tmp/* /var/tmp/*
 
-COPY opcache.conf /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
+RUN rm /usr/local/etc/php-fpm.d/www.conf.default && rm /usr/local/etc/php-fpm.d/www.conf
 COPY php-fpm.conf /usr/local/etc/php-fpm.conf
 COPY php.ini /usr/local/etc/php/
