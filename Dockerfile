@@ -5,10 +5,15 @@ RUN apk update \
     && apk add \
     tzdata \
     libmcrypt-dev \
+    libmcrypt \
     icu-dev \
+    icu \
     libjpeg-turbo-dev \
     libpng-dev \
     freetype-dev \
+    libjpeg-turbo \
+    libpng \
+    freetype \
     autoconf \
     file \
     g++ \
@@ -28,7 +33,7 @@ RUN apk update \
     gmp \
     libgomp \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install mcrypt pdo_mysql mysqli intl zip opcache gd \
+    && docker-php-ext-install mcrypt mysqli intl zip opcache gd \
     && pecl install redis \
     && docker-php-ext-enable redis \
     && cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
