@@ -1,4 +1,4 @@
-FROM php:7.2.12-fpm-alpine
+FROM php:7.4.5-fpm-alpine
 
 
 RUN apk update \
